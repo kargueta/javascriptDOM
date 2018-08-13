@@ -70,43 +70,68 @@ const clonedBanner = banner.cloneNode(true);
 
 */
 	
-	/*LESSON 9*/
-
-	var h2 = document.querySelector('#book-list h2');
-	h2.addEventListener('click', function(event){
-		console.log(event.target);
-		// The target itself has many properties that give information about the click and actions taken
-		console.log(event);
-	});
-
-
-	var btns = document.querySelectorAll('#book-list .delete');
-
-	// console.log('working');
-
-
-	Array.from(btns).forEach(function(btn){
-		
-		btn.addEventListener('click', function(event){
-
-			// console.log('working');
-			//access the list element holding the book names
-			const li = event.target.parentElement;
-
-			//The parent of the li is the unordered list and from here we can control the li's ie remove them
-			li.parentNode.removeChild(li);
+	/*LESSON 9
+		var h2 = document.querySelector('#book-list h2');
+		h2.addEventListener('click', function(event){
+			console.log(event.target);
+			// The target itself has many properties that give information about the click and actions taken
+			console.log(event);
 		});
-	});
 
-	const link = document.querySelector('#page-banner a');
 
-	link.addEventListener('click',function(e){
+		var btns = document.querySelectorAll('#book-list .delete');
 
-		//this method prevents the link from executing normal function of opening link upon 
-		// being clicked
-		e.preventDefault();
-		console.log('navigation to ', e.target.textContent, ' was prevented');
-	});
+		// console.log('working');
+
+
+		Array.from(btns).forEach(function(btn){
+			
+			btn.addEventListener('click', function(event){
+
+				// console.log('working');
+				//access the list element holding the book names
+				const li = event.target.parentElement;
+
+				//The parent of the li is the unordered list and from here we can control the li's ie remove them
+				li.parentNode.removeChild(li);
+			});
+		});
+
+		const link = document.querySelector('#page-banner a');
+
+		link.addEventListener('click',function(e){
+
+			//this method prevents the link from executing normal function of opening link upon 
+			// being clicked
+			e.preventDefault();
+			console.log('navigation to ', e.target.textContent, ' was prevented');
+		});
+
+	*/
+
+
+	/*Lesson 10*/
+
+	//EVENT BUBBLING
+
+	//On a click event the signal bubbles up the DOM element hierarchy tree of parents 
+	// this is useful becuase it provides a means to work around the problem of having too many
+	// eventlisteners dedicated to each button and instead assign one eventListener to the li's parent (li is parent of button)
+
+	 const list = document.querySelector('#book-list ul');
+
+	 list.addEventListener('click', function(e){
+
+	 	if(e.target.className == 'delete'){
+	 		const li = e.target.parentElement;
+	 		list.removeChild(li);
+	 	}
+
+	 });
+
+
+
+		
 	
 
 
