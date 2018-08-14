@@ -190,6 +190,36 @@ const clonedBanner = banner.cloneNode(true);
 	 });
 
 
+	 /*LESSON 16*/
+	 //Filter Books
+	 //Creating a search filter and working with 'key up' event action/listeners
+
+	 //access the input field for searching books
+	 const searchBar = document.forms['search-books'].querySelector('input');
+	 //when a key goes after being pressed the search initiates
+	 searchBar.addEventListener('keyup', function(e){
+	 	//access the search term going into the box and get rid of cases
+	 	const term = e.target.value.toLowerCase();
+	 	//accessing the li's holding the books
+	 	const books = list.getElementsByTagName('li');
+	 	Array.from(books).forEach(function(book){
+
+	 		const title = book.firstElementChild.textContent;
+	 			//indexOf method checks where the term string is part of the title
+	 			if(title.toLowerCase().indexOf(term) != -1){
+	 				// search terms that match are made "visible"
+	 				book.style.display = 'block'; 
+	 			}else{
+	 				//titles that don't match dissapear from the results
+	 				book.style.display = 'none';
+	 			}
+	 	});
+	 });
+
+
+
+
+
 
 
 
