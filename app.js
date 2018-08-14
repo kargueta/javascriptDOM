@@ -162,10 +162,21 @@ const clonedBanner = banner.cloneNode(true);
 		deleteBtn.textContent = 'delete';
 		bookName.textContent = value;
 
+		/*LESSON 13*/
+		//Add remove classes
+		bookName.classList.add('name');
+		deleteBtn.classList.add('delete');
+
+
 		li.appendChild(bookName);
 		li.appendChild(deleteBtn); 
 		list.appendChild(li);
 	});
+
+
+
+
+
 
 
 
