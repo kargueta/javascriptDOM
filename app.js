@@ -173,6 +173,22 @@ const clonedBanner = banner.cloneNode(true);
 		list.appendChild(li);
 	});
 
+	 /*LESSON 15*/
+	 const hideBox = document.querySelector('#hide');
+	 hideBox.addEventListener('change',function(e){
+	 	//If the box is checked then change the display property of
+	 	//the ul to none or hidden 
+
+	 	if(hideBox.checked){
+	 		list.style.display = "none";
+	 	}else{
+	 		//Else an unchecked box means show the element
+	 		list.style.display = "initial";
+	 	}
+
+
+	 });
+
 
 
 
