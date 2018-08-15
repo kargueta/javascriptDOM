@@ -217,6 +217,34 @@ const clonedBanner = banner.cloneNode(true);
 	 });
 
 
+	 /*LESSON 17*/
+
+	 const tabs = document.querySelector('.tabs');
+
+	 const panels = document.querySelectorAll('.panel');
+
+	 tabs.addEventListener('click',function(e){
+
+	 	//setup an eventlistener for the whole tabbed content ul
+	 	//and if an li is clicked then we act by...
+	 	if(e.target.tagName == "LI"){
+
+	 		//access the dataset id content held which we call target ie "data-target"
+	 		const targetPanel = document.querySelector(e.target.dataset.target);
+	 		panels.forEach(function(panel){
+	 			if(panel == targetPanel){
+
+	 				panel.classList.add('active');
+	 			}	
+	 			else{
+	 				console.log('working');
+	 				panel.classList.remove('active');
+	 			}
+	 		});
+	 	}
+	 }); 
+
+
 
 
 
