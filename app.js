@@ -131,7 +131,15 @@ const clonedBanner = banner.cloneNode(true);
 
 	*/
 
-	/*LESSON 11*/
+	/*LESSON 18*/
+
+	//Work around to the problem of having to place script link 
+	//at the bottom of the html body so that it runs script after 
+	//everything has loaded. The solution is to add a command that 
+	//only runs the javascript once it is detected that the DOM is fully loaded
+
+	document.addEventListener('DOMContentLoaded',function(){
+		/*LESSON 11*/
 
 	const list = document.querySelector('#book-list ul');
 
@@ -237,12 +245,15 @@ const clonedBanner = banner.cloneNode(true);
 	 				panel.classList.add('active');
 	 			}	
 	 			else{
-	 				console.log('working');
+	 				
 	 				panel.classList.remove('active');
 	 			}
 	 		});
 	 	}
 	 }); 
+	});
+
+	
 
 
 
